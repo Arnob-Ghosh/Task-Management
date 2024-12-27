@@ -21,3 +21,13 @@ npm install,
 npm run dev,
 php artisan key:generate,
 php artisan serve
+
+How to Use
+
+Register a new account or log in using existing credentials.
+
+Add new tasks using the "Create Task" option.
+
+View, edit, or delete tasks from the task list.
+
+Filter tasks by status or sort them by due date using the table controls.
