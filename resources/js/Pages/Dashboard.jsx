@@ -56,7 +56,7 @@ const Dashboard = () => {
     const handleSaveTask = async () => {
         try {
             const method = isEditMode ? 'PUT' : 'POST';
-            const url = isEditMode ? `/create-t asks/${taskDetails.id}` : '/create-tasks'; 
+            const url = isEditMode ? `/create-tasks/${taskDetails.id}` : '/create-tasks'; 
 
             const response = await fetch(url, {
                 method: method,
