@@ -53,11 +53,11 @@ const Dashboard = () => {
         });
     };
 
-    const handleSaveTask = async () => {
+     const handleSaveTask = async () => {
         try {
             const method = isEditMode ? 'PUT' : 'POST';
             const url = isEditMode ? `/create-tasks/${taskDetails.id}` : '/create-tasks'; 
-
+    
             const response = await fetch(url, {
                 method: method,
                 headers: {
@@ -66,20 +66,20 @@ const Dashboard = () => {
                 },
                 body: JSON.stringify(taskDetails),
             });
-
+    
             if (!response.ok) {
                 const errorData = await response.json();
-                setErrors(errorData.errors);
+                setErrors(errorData.errors); // Update the errors state
                 showNotification('error', 'Validation Error', errorData.errors[Object.keys(errorData.errors)[0]][0]);
                 return;
             }
-
+    
             const result = await response.json();
             const successMessage = isEditMode ? 'Task updated successfully!' : 'Task created successfully!';
             showNotification('success', 'Success', successMessage);
             setIsModalVisible(false);
             setTaskDetails({ id: null, name: '', description: '', dueDate: '', status: 'Pending' });
-            setErrors({});
+            setErrors({}); // Clear errors
             fetchTasks();
         } catch (error) {
             showNotification('error', 'Error', error.message);
