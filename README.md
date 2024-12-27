@@ -19,6 +19,7 @@ To run the app you will need to run the following command
 composer update,
 npm install,
 npm run dev,
+php artisan migrate,
 php artisan key:generate,
 php artisan serve
 
